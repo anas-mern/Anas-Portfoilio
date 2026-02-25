@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import DashboardPage from "./Pages/DashboardPage";
+import LoginPage from "./Pages/LoginPage";
+import EditPage from "./Pages/EditPage";
+import CreatePage from "./Pages/CreatePage";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route element={<HomePage />} path="/" />
+      <Route element={<LoginPage />} path="/login" />
+      <Route element={<ProtectedRoute />} path="/dashboard">
+        <Route element={<DashboardPage />} path="" />
+        <Route element={<EditPage type="project" />} path="edit-project/:id" />
+        <Route element={<CreatePage />} path="create-project" />
+        <Route element={<EditPage type="admin" />} path="edit-admin/:id" />
+      </Route>
+    </Routes>
   );
 }
 
 export default App;
+export const apiLink = "https://portfolio-backend-8zuc.onrender.com/api/v1"
