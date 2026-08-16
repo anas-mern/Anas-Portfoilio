@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Anas-Portfolio/static/css/main.fae8666f.css",
-    "main.js": "/Anas-Portfolio/static/js/main.35f8f56a.js",
+    "main.css": "/Anas-Portfolio/static/css/main.7f794c9c.css",
+    "main.js": "/Anas-Portfolio/static/js/main.459b65ff.js",
     "index.html": "/Anas-Portfolio/index.html",
-    "main.fae8666f.css.map": "/Anas-Portfolio/static/css/main.fae8666f.css.map",
-    "main.35f8f56a.js.map": "/Anas-Portfolio/static/js/main.35f8f56a.js.map"
+    "main.7f794c9c.css.map": "/Anas-Portfolio/static/css/main.7f794c9c.css.map",
+    "main.459b65ff.js.map": "/Anas-Portfolio/static/js/main.459b65ff.js.map"
   },
   "entrypoints": [
-    "static/css/main.fae8666f.css",
-    "static/js/main.35f8f56a.js"
+    "static/css/main.7f794c9c.css",
+    "static/js/main.459b65ff.js"
   ]
 }
