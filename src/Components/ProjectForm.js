@@ -67,8 +67,13 @@ export default function ProjectForm({ type }) {
         if (
           !["_id", "createdAt", "updatedAt", "__v"].includes(key) &&
           projectData[key] !== oldImage
-        )
-          formData.append(key, projectData[key]);
+        ) {
+          if (key === "skills") {
+            formData.append(key, JSON.stringify(projectData[key]));
+          } else {
+            formData.append(key, projectData[key]);
+          }
+        }
       }
       if (type === "Create") {
         await axios.post(`${apiLink}/projects`, formData, {
@@ -77,16 +82,12 @@ export default function ProjectForm({ type }) {
           },
         });
       } else {
-        const id = window.location.href.split("/")[5];
-        await axios.patch(
-          `${apiLink}/projects/${id}`,
-          formData,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const id = window.location.href.split("/")[6];
+        await axios.patch(`${apiLink}/projects/${id}`, formData, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
       }
       navigate("/dashboard");
     } catch (error) {
@@ -98,15 +99,13 @@ export default function ProjectForm({ type }) {
   useEffect(() => {
     if (type === "Edit") {
       const getProject = async () => {
-        const id = window.location.href.split("/")[5];
-        const res = await axios.get(
-          `${apiLink}/projects/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const id = window.location.href.split("/")[6];
+        console.log(id);
+        const res = await axios.get(`${apiLink}/projects/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setOldImage(res.data.project.image);
         setImagePreview(res.data.project.image);
         setProjectData(res.data.project);

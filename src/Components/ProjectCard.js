@@ -17,7 +17,7 @@ export default function ProjectCard({ project, dashboard }) {
     console.log(project._id);
     try {
       await axios.delete(
-        `${apiLink}/${project._id}`,
+        `${apiLink}/projects/${project._id}`,
         { headers: { Authorization: `Bearer ${token}` } },
       );
     } catch (error) {
@@ -25,12 +25,12 @@ export default function ProjectCard({ project, dashboard }) {
     }
   };
   return (
-    <div className="col-md-6 col-sm-6 col-12 mb-4">
+    <div className="col-lg-6 col-md-4 col-sm-6 col-12 mb-4">
       <Card className="bg-black text-white project-card position-relative pointer-event">
-        <div className="d-flex">
+        <div className="d-flex project-content">
           <Card.Img
             onClick={navigateToProject}
-            style={{ width: "200px" }}
+            className="project-img"
             src={project.image}
           />
           <div className="d-flex flex-column">

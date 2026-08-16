@@ -9,9 +9,9 @@ export default function Hero() {
         alt="Profile Card"
       />
       <div>
-        <h1 className="p-3 text-white">
+        <p className="p-3 text-white hero-title">
           Hi, I’m Anas — I Turn Ideas into Web Magic ✨
-        </h1>
+        </p>
         <p className="p-3 text-white fs-3">
           MERN Stack Developer building apps that aren’t just functional —
           they’re fast, sleek, and unforgettable.

@@ -40,7 +40,7 @@ export default function AboutMe() {
           </p>
         </div>
         <img
-          src="./about-me.webp"
+          src="/Anas-Portfolio/about-me.webp"
           className="about-img rounded"
           alt="About Me"
         />

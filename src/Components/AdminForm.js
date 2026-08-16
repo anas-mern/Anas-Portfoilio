@@ -29,9 +29,10 @@ export default function AdminForm({ type }) {
         localStorage.setItem("user", JSON.stringify(res.data.user));
       } else {
         const token = localStorage.getItem("token");
-        const id = window.location.href.split("/")[5];
+        const id = window.location.href.split("/")[6];
+        console.log(id)
         await axios.patch(
-          `${apiLink}/${id}`,
+          `${apiLink}/admin/edit/${id}`,
           body,
           { headers: { Authorization: `Bearer ${token}` } },
         );
